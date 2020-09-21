@@ -15,11 +15,11 @@ after_success:
 
 #log in to docker hub
  
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
 
 # push images to docker hub
 
-    - docker push  mpk/multi-client
-    - docker push mpk/multi-nginx
-    - docker push   mpk/multi-server
-    - docker push  mpk/multi-worker
+    - docker push  praskatti/multi-client
+    - docker push praskatti/multi-nginx
+    - docker push   praskatti/multi-server
+    - docker push  praskatti/multi-worker
