@@ -8,10 +8,10 @@ script:
     - docker run -e CI=true  mpk/react-test npm test
 
 after_success:
-    - docker build -t mpk/multi-client ./client
-    - docker build -t mpk/multi-nginx ./nginx
-    - docker build -t mpk/multi-server ./server
-    - docker build -t mpk/multi-worker ./worker
+    - docker build -t praskatti/multi-client ./client
+    - docker build -t praskatti/multi-nginx ./nginx
+    - docker build -t praskatti/multi-server ./server
+    - docker build -t praskatti/multi-worker ./worker
 
 #log in to docker hub
  
