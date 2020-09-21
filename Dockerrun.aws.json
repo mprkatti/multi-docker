@@ -1,6 +1,6 @@
 {
 
-    "AWSDockerrunVersion":2,
+    "AWSEBDockerrunVersion":2,
     "containerDefinitions" :[
 
         {
