@@ -1,0 +1,26 @@
+sudo: required
+language: generic
+services:
+    - docker
+before_install:
+    - docker build -t mpk/react-test -f ./client/Dockerfile.dev ./client
+script:
+    - docker run -e CI=true  mpk/react-test npm test
+
+after_success:
+    - docker build -t mpk/multi-client ./client
+    - docker build -t mpk/multi-nginx ./nginx
+    - docker build -t mpk/multi-server ./server
+    - docker build -t mpk/multi-worker ./worker
+
+#log in to docker hub
+ 
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+# push images to docker hub
+
+    - docker push  mpk/multi-client
+    - docker push mpk/multi-nginx
+    - docker push   mpk/multi-server
+    - docker push  mpk/multi-worker
+    
