@@ -24,6 +24,7 @@ after_success:
     - docker push   praskatti/multi-server
     - docker push  praskatti/multi-worker
 deploy:
+    edge: true
     provider: elasticbeanstalk
     region: us-east-1
     app: multi-docker-mpk
@@ -33,7 +34,6 @@ deploy:
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
-    secret_access_key:
-        secure: $AWS_SECRET_KEY        
+    secret_access_key: $AWS_SECRET_KEY        
         
 
