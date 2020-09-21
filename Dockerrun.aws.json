@@ -1,0 +1,43 @@
+{
+
+    "AWSDockerrunVersion":2,
+    "containerDefinitions" :[
+
+        {
+            "name" : "client",
+            "image" : "praskatti/multi-client",
+            "hostname" : "client",
+            "essential": false,
+            "memory" : 128
+        },
+        {
+            "name" : "server",
+            "image" : "praskatti/multi-server",
+            "hostname" : "api",
+            "essential": false,
+            "memory" : 128
+        },
+        {
+            "name" : "worker",
+            "image" : "praskatti/multi-worker",
+            "hostname" : "worker",
+            "essential": false,
+            "memory" : 128
+        },
+        {
+            "name" : "nginx",
+            "image" : "praskatti/multi-nginx",
+            "hostname" : "nginx",
+            "essential": true,
+            "memory" : 128,
+            "portMappings" :[
+
+                {"hostPort" : 80,
+                 "containerPort" : 80
+                }
+                
+            ],
+            "links" :["client", "server"]
+        }
+    ]
+}
