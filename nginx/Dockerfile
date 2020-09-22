@@ -1,4 +1,4 @@
-FROM nginx:1.18.0
+FROM nginx
 EXPOSE 80
-COPY ./default.conf  /etc/nginx/conf.d/000_my_config.conf
+COPY ./default.conf  /etc/nginx/conf.d/default.conf
 
